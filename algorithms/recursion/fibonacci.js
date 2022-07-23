@@ -5,28 +5,25 @@
 
 //For example: fibonacciRecursive(6) should return 8
 
-// Using Iteration
+// Using Iteration - O(n) => Linear Time Complexity
 function fibonacciIterative(n) {
 
-    let first = 0;
-    let second = 1;
+    let arr = [0, 1];
 
-    for (i = 1; i < n; i++) {
-        let tmp = second;
-        second = second + first;
-        first = tmp;
+    for (i = 2; i <= n; i++) {
+        arr.push(arr[i - 1] + arr[i - 2]);
     }
 
-    return second;
+    return arr[n];
 }
 
 // console.log("iterative ", fibonacciIterative(6));
 
-// Using Recursion
+// Using Recursion - O(2^n) => Exponential Time Complexity
 function fibonacciRecursive(n) {
 
-    if (n <= 2) {
-        return 1;
+    if (n < 2) {
+        return n;
     }
 
     return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
