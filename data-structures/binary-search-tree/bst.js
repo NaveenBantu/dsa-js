@@ -53,7 +53,7 @@ class BinarySearchTree {
 
             while (true) {
                 if (value === currentNode.value) {
-                    return true;
+                    return currentNode;
                 }
 
                 if (value < currentNode.value) {
