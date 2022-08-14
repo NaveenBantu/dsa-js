@@ -8,23 +8,26 @@
 
 // N is an integer within the range [1..2,147,483,647].
 
-function binaryGap(value) {
-  let highestCount = 0;
-  for (let i = 0; i < value.length; i++) {
-    console.log(value[i] === "1");
-    if (value[i] === "1") {
-      let count = 0;
-      for (let j = i + 1; j < value.length; j++) {
-        if (value[j] === "1") {
-          highestCount = count;
-        }
-        count += 1;
-        // return 0;
-      }
-    }
-  }
+function binaryGap(N) {
+// converting integer to binary
+  const binary = N.toString(2);
 
-  return highestCount;
+    let highestCount = 0;
+  
+    for (let i = 0; i < binary.length; i++) {
+        if (binary[i] === "1") {
+            let count = 0;
+            for (let j = i + 1; j < binary.length; j++) {
+                if (binary[j] === "1") {
+                    if(count>highestCount) highestCount = count;
+                    break;
+                }
+                count += 1;
+            }
+        }
+    }
+
+    return highestCount;
 }
 
 // Example function call
