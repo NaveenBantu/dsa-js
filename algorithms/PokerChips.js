@@ -4,7 +4,19 @@
 // Write a function to find the minimum number of chips the cashier can use to match the customer requests.
 
 function pokerChips(value){
-  // Write code below
+  // Array to store the available chips
+  const chips = [100, 50, 25, 10, 1];
+
+  // Variable to sore the min. count of chips
+  let chipCount = 0;
+
+  // Loop through the available chips and get the chip count - but its a fixed array - O(1)
+  for (chip in chips){
+    let num = Math.floor(value/chip);
+    value -= chip * num;
+    chipCount += num; 
+  }
+  return chipCount;
 }
 
 // Testing the function using the following example:
